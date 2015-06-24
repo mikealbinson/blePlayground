@@ -40,12 +40,12 @@
 		4CB60D1D1B2B9F2400852123 /* BlePlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlePlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB60D221B2B9F2400852123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CB60D231B2B9F2400852123 /* BlePlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlePlaygroundTests.swift; sourceTree = "<group>"; };
-		4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelProtocol.swift; path = ../../../../Users/michael/Documents/BlePlayground/LabelProtocol.swift; sourceTree = "<group>"; };
-		4CDA12871B332E3B00CA5EA9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../../Users/michael/Documents/BlePlayground/BlePlayground/ViewController.swift; sourceTree = "<group>"; };
-		4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleManagerClass.swift; path = ../../../../Users/michael/Documents/BlePlayground/BleManagerClass.swift; sourceTree = "<group>"; };
-		4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleScannerClass.swift; path = ../../../../Users/michael/Documents/BlePlayground/BleScannerClass.swift; sourceTree = "<group>"; };
-		4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleFindDelegateClass.swift; path = ../../../../Users/michael/Documents/BlePlayground/BleFindDelegateClass.swift; sourceTree = "<group>"; };
-		4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleWriterClass.swift; path = ../../../../Users/michael/Documents/BlePlayground/BleWriterClass.swift; sourceTree = "<group>"; };
+		4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelProtocol.swift; path = LabelProtocol.swift; sourceTree = "<group>"; };
+		4CDA12871B332E3B00CA5EA9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleManagerClass.swift; path = BleManagerClass.swift; sourceTree = "<group>"; };
+		4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleScannerClass.swift; path = BleScannerClass.swift; sourceTree = "<group>"; };
+		4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleFindDelegateClass.swift; path = BleFindDelegateClass.swift; sourceTree = "<group>"; };
+		4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleWriterClass.swift; path = BleWriterClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +69,6 @@
 		4CB60CFF1B2B9F2400852123 = {
 			isa = PBXGroup;
 			children = (
-				4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */,
-				4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */,
-				4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */,
-				4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */,
-				4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */,
 				4CB60D0A1B2B9F2400852123 /* BlePlayground */,
 				4CB60D201B2B9F2400852123 /* BlePlaygroundTests */,
 				4CB60D091B2B9F2400852123 /* Products */,
@@ -93,10 +88,15 @@
 			isa = PBXGroup;
 			children = (
 				4CB60D0D1B2B9F2400852123 /* AppDelegate.swift */,
+				4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */,
+				4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */,
+				4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */,
+				4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */,
+				4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */,
 				4CDA12871B332E3B00CA5EA9 /* ViewController.swift */,
-				4CB60D111B2B9F2400852123 /* Main.storyboard */,
 				4CB60D141B2B9F2400852123 /* Images.xcassets */,
 				4CB60D161B2B9F2400852123 /* LaunchScreen.xib */,
+				4CB60D111B2B9F2400852123 /* Main.storyboard */,
 				4CB60D0B1B2B9F2400852123 /* Supporting Files */,
 			);
 			path = BlePlayground;
