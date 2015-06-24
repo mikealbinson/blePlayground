@@ -14,10 +14,10 @@
 		4CB60D241B2B9F2400852123 /* BlePlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB60D231B2B9F2400852123 /* BlePlaygroundTests.swift */; };
 		4CD47AE91B39C9B7008656A4 /* LabelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */; };
 		4CDA12881B332E3B00CA5EA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA12871B332E3B00CA5EA9 /* ViewController.swift */; };
-		4CDA128A1B332F6300CA5EA9 /* BleManagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */; };
-		4CDA128C1B34BD6500CA5EA9 /* BleScannerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */; };
-		4CDA128E1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */; };
-		4CDA12901B34BDC000CA5EA9 /* BleWriterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */; };
+		4CDA128A1B332F6300CA5EA9 /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA12891B332F6300CA5EA9 /* BleManager.swift */; };
+		4CDA128C1B34BD6500CA5EA9 /* BleScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA128B1B34BD6500CA5EA9 /* BleScanner.swift */; };
+		4CDA128E1B34BD8A00CA5EA9 /* BleFindDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegate.swift */; };
+		4CDA12901B34BDC000CA5EA9 /* BleWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA128F1B34BDC000CA5EA9 /* BleWriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,12 +40,12 @@
 		4CB60D1D1B2B9F2400852123 /* BlePlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlePlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB60D221B2B9F2400852123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CB60D231B2B9F2400852123 /* BlePlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlePlaygroundTests.swift; sourceTree = "<group>"; };
-		4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelProtocol.swift; path = LabelProtocol.swift; sourceTree = "<group>"; };
-		4CDA12871B332E3B00CA5EA9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleManagerClass.swift; path = BleManagerClass.swift; sourceTree = "<group>"; };
-		4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleScannerClass.swift; path = BleScannerClass.swift; sourceTree = "<group>"; };
-		4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleFindDelegateClass.swift; path = BleFindDelegateClass.swift; sourceTree = "<group>"; };
-		4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BleWriterClass.swift; path = BleWriterClass.swift; sourceTree = "<group>"; };
+		4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelProtocol.swift; sourceTree = "<group>"; };
+		4CDA12871B332E3B00CA5EA9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CDA12891B332F6300CA5EA9 /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
+		4CDA128B1B34BD6500CA5EA9 /* BleScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleScanner.swift; sourceTree = "<group>"; };
+		4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleFindDelegate.swift; sourceTree = "<group>"; };
+		4CDA128F1B34BDC000CA5EA9 /* BleWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleWriter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,10 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				4CB60D0D1B2B9F2400852123 /* AppDelegate.swift */,
-				4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift */,
-				4CDA12891B332F6300CA5EA9 /* BleManagerClass.swift */,
-				4CDA128B1B34BD6500CA5EA9 /* BleScannerClass.swift */,
-				4CDA128F1B34BDC000CA5EA9 /* BleWriterClass.swift */,
+				4CDA128D1B34BD8A00CA5EA9 /* BleFindDelegate.swift */,
+				4CDA12891B332F6300CA5EA9 /* BleManager.swift */,
+				4CDA128B1B34BD6500CA5EA9 /* BleScanner.swift */,
+				4CDA128F1B34BDC000CA5EA9 /* BleWriter.swift */,
 				4CD47AE81B39C9B7008656A4 /* LabelProtocol.swift */,
 				4CDA12871B332E3B00CA5EA9 /* ViewController.swift */,
 				4CB60D141B2B9F2400852123 /* Images.xcassets */,
@@ -229,13 +229,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CDA12901B34BDC000CA5EA9 /* BleWriterClass.swift in Sources */,
+				4CDA12901B34BDC000CA5EA9 /* BleWriter.swift in Sources */,
 				4CD47AE91B39C9B7008656A4 /* LabelProtocol.swift in Sources */,
-				4CDA128A1B332F6300CA5EA9 /* BleManagerClass.swift in Sources */,
+				4CDA128A1B332F6300CA5EA9 /* BleManager.swift in Sources */,
 				4CDA12881B332E3B00CA5EA9 /* ViewController.swift in Sources */,
-				4CDA128E1B34BD8A00CA5EA9 /* BleFindDelegateClass.swift in Sources */,
+				4CDA128E1B34BD8A00CA5EA9 /* BleFindDelegate.swift in Sources */,
 				4CB60D0E1B2B9F2400852123 /* AppDelegate.swift in Sources */,
-				4CDA128C1B34BD6500CA5EA9 /* BleScannerClass.swift in Sources */,
+				4CDA128C1B34BD6500CA5EA9 /* BleScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

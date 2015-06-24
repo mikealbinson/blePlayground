@@ -1,5 +1,5 @@
 //
-//  BleManagerClass.swift
+//  BleManager.swift
 //  BlePlayground
 //
 //  Created by michael on 6/18/15.
