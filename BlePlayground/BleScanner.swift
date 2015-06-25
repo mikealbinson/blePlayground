@@ -10,24 +10,24 @@ import Foundation
 import CoreBluetooth
 import UIKit
 
-
 //MARK: bleScanningObject
 class BleScanner: NSObject, CBCentralManagerDelegate {
     
     var counter = 0
+    var centralManager: CBCentralManager!
     
-    let arrayReference: peripheralArray
+    let arrayReference = peripheralArray()
     var blePeripheralFinder: BlePeripheralFinder!
     var connectionTimer: NSTimer!
     
     let labelManager: LabelCheckManager
     
-    init(arrayReferenceIn: peripheralArray, labelManagerIn: LabelCheckManager){
-        self.arrayReference = arrayReferenceIn
+    init(labelManagerIn: LabelCheckManager){
         self.labelManager = labelManagerIn
         
-        
         super.init()
+        self.centralManager = CBCentralManager(delegate: self, queue: nil)
+        
         //connectionTimer = NSTimer.scheduledTimerWithTimeInterval (15, target: self, selector: "makeSureConnectedToClosestBle", userInfo: nil, repeats: true)
         //can't recognize the selector
     }
@@ -35,6 +35,7 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
     
     func centralManagerDidUpdateState(central: CBCentralManager!) {
         var powerState = central.state
+        arrayReference.powerState = powerState
         if powerState == CBCentralManagerState.PoweredOn
         {
             println ("Powered on")
