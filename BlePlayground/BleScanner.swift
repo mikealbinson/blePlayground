@@ -1,5 +1,5 @@
 //
-//  BleScannerClass.swift
+//  BleScanner.swift
 //  BlePlayground
 //
 //  Created by michael on 6/19/15.
