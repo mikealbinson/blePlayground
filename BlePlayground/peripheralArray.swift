@@ -11,16 +11,6 @@ import CoreBluetooth
 import UIKit
 
 //MARK: BleManager
-class BleManager {
-    var centralManager: CBCentralManager!
-    var bleScanner: BleScanner!
-
-    
-    init (referenceArrayInIn: peripheralArray, labelManagerIn: LabelCheckManager){
-        self.bleScanner = BleScanner(arrayReferenceIn: referenceArrayInIn, labelManagerIn: labelManagerIn)
-        self.centralManager = CBCentralManager(delegate: bleScanner, queue: nil)
-    }
-}
 
 //MARK: peripheralArray
 class peripheralArray: NSObject {
@@ -29,11 +19,16 @@ class peripheralArray: NSObject {
     var rssiDictionary = [CBPeripheral: Int]()
     var connectionDictionary = [CBPeripheral: CBPeripheralState]()
     var connectFlag = false
+    var powerState: CBCentralManagerState
     
-    override init(){}
+    
+    override init(){
+    powerState = .PoweredOff
+    }
     
     func appendPeripheral(peripheral: CBPeripheral, characteristic : CBCharacteristic) {
         var peripheralFlag = false
+        
         for peripherals in peripheralArray {
             if peripheral == peripherals {
                 peripheralFlag = true
