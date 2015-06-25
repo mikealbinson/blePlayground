@@ -24,8 +24,7 @@ class ViewController: UIViewController{
     var messageLabel : UILabel!
     var RssiLabel: UILabel!
     let sendButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-    var BleManagerOne: BleManager!
-    let arrayReference = peripheralArray()
+    var bleScanner: BleScanner!
     var labelManager: LabelCheckManager!
     //var labelSetupTimer: NSTimer!
 
@@ -75,7 +74,7 @@ class ViewController: UIViewController{
         println ("done")
         
         labelManager = LabelCheckManager (messageLabelIn: messageLabel, rssiLabelIn: RssiLabel, statusLabelIn: statusLabel)
-        BleManagerOne = BleManager(referenceArrayInIn: arrayReference, labelManagerIn: labelManager)
+        bleScanner = BleScanner(labelManagerIn: labelManager)
         println ("done2")
             }
     
@@ -86,9 +85,9 @@ class ViewController: UIViewController{
     
     func buttonAction (sender:UIButton!)
     {
-        if arrayReference.connectFlag == true && BleManagerOne.centralManager.state == .PoweredOn{
+        if bleScanner.arrayReference.connectFlag == true && bleScanner.centralManager.state == CBCentralManagerState.PoweredOn {
         println ("Manual Write")
-        BleManagerOne.bleScanner.blePeripheralFinder.bleWriter.writeToClosestPeripheral(TICKETSAMPLEDATA)
+        bleScanner.blePeripheralFinder.bleWriter.writeToClosestPeripheral(TICKETSAMPLEDATA)
         }
     }
 
