@@ -20,10 +20,11 @@ class peripheralArray: NSObject {
     var connectionDictionary = [CBPeripheral: CBPeripheralState]()
     var connectFlag = false
     var powerState: CBCentralManagerState
+    var centralManager: CBCentralManager?
     
     
     override init(){
-    powerState = .PoweredOff
+        powerState = .PoweredOff
     }
     
     func appendPeripheral(peripheral: CBPeripheral, characteristic : CBCharacteristic) {
@@ -105,4 +106,14 @@ class peripheralArray: NSObject {
         }
     }
     
+    func checkIfArrayIsEmpty () -> Bool{
+        if peripheralArray.isEmpty {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
 }
+

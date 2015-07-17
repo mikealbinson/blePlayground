@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import CoreBluetooth
 
 
 protocol LabelDelegate {
-    var rssiLabel: UILabel! {get}
-    var messageLabel: UILabel! {get}
-    var statusLabel: UILabel! {get}
+    var rssiLabel: UILabel? {get}
+    var messageLabel: UILabel? {get}
+    var statusLabel: UILabel? {get}
     
     func statusLabelStatusChange (changeString: String)
     func messageLabelStatusChange (changeString: String)
@@ -23,14 +24,14 @@ protocol LabelDelegate {
 
 
 class LabelCheckManager: LabelDelegate {
-    var statusCheckTimer: NSTimer!
-    var messageCheckTimer: NSTimer!
-    var rssiCheckTimer: NSTimer!
+    var statusCheckTimer: NSTimer?
+    var messageCheckTimer: NSTimer?
+    var rssiCheckTimer: NSTimer?
     
     
-    var rssiLabel: UILabel!
-    var messageLabel: UILabel!
-    var statusLabel: UILabel!
+    var rssiLabel: UILabel?
+    var messageLabel: UILabel?
+    var statusLabel: UILabel?
     
     init (messageLabelIn: UILabel, rssiLabelIn: UILabel, statusLabelIn: UILabel) {
         rssiLabel = rssiLabelIn
@@ -39,15 +40,15 @@ class LabelCheckManager: LabelDelegate {
     }
     
     func statusLabelStatusChange(changeString: String) {
-        statusLabel.text = changeString
+        statusLabel?.text = changeString
     }
     
     func messageLabelStatusChange(changeString: String) {
-        messageLabel.text = changeString
+        messageLabel?.text = changeString
     }
     
     func rssiLabelStatusChange(changeString: String) {
-        rssiLabel.text = changeString
+        rssiLabel?.text = changeString
     }
     
 }

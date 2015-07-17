@@ -13,22 +13,19 @@ import UIKit
 
 //MARK: BleReadWriteClass
 class BleWriter: NSObject {
-    //var readPeripheralTimer = NSTimer!
     
-    let foundCharacteristic: CBCharacteristic!
+    let foundCharacteristic: CBCharacteristic?
     var arrayReference: peripheralArray
     
     init(characteristic: CBCharacteristic, arrayReferenceIn: peripheralArray){
         self.foundCharacteristic = characteristic
         self.arrayReference = arrayReferenceIn
-        //self.readPeripheralTimer.scheduledTimerWithTimeInterval (15, target: self, selector: "readClosestPeripheral", userInfo: nil, repeats: true)
     }
     
     func writeToClosestPeripheral (datatoWrite: NSData!) {
-        if arrayReference.connectFlag == true {
-            if self.foundCharacteristic.UUID == RBL_WRITE_NO_RESPONSE_UUID {
-                arrayReference.peripheralArray[0].writeValue(datatoWrite, forCharacteristic: foundCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
-            }
+        if arrayReference.connectFlag == true && self.foundCharacteristic?.UUID == EDISON_WRITE_NO_RESPONSE_UUID {
+            arrayReference.peripheralArray[0].writeValue(datatoWrite, forCharacteristic: foundCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+            arrayReference.centralManager?.cancelPeripheralConnection(arrayReference.peripheralArray[0])
         }
         else {
             println ("Tried to write, but couldn't")

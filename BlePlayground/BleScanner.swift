@@ -14,22 +14,25 @@ import UIKit
 class BleScanner: NSObject, CBCentralManagerDelegate {
     
     var counter = 0
-    var centralManager: CBCentralManager!
-    
+    lazy var centralManager: CBCentralManager = {
+        return CBCentralManager(delegate: self, queue: nil)
+    }()
+    var beaconManager: BeaconManager?
+
+
     let arrayReference = peripheralArray()
-    var blePeripheralFinder: BlePeripheralFinder!
-    var connectionTimer: NSTimer!
+    var blePeripheralFinder: BlePeripheralFinder?
+    var connectionTimer: NSTimer?
     
     let labelManager: LabelCheckManager
     
     init(labelManagerIn: LabelCheckManager){
         self.labelManager = labelManagerIn
-        
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
         
-        //connectionTimer = NSTimer.scheduledTimerWithTimeInterval (15, target: self, selector: "makeSureConnectedToClosestBle", userInfo: nil, repeats: true)
-        //can't recognize the selector
+        connectionTimer = NSTimer.scheduledTimerWithTimeInterval (2, target: self, selector: "beaconTimerTargetStartScan", userInfo: nil, repeats: true)
+        arrayReference.centralManager = centralManager
     }
     
     
@@ -42,6 +45,7 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
             //Scan and retrieve
             central.scanForPeripheralsWithServices(nil, options: nil)
             labelManager.statusLabelStatusChange("Central Powered On")
+            beaconManager = BeaconManager(labelManagerIn: labelManager, scannerIn: self)
         }
         else if powerState == CBCentralManagerState.PoweredOff
         {
@@ -60,15 +64,18 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
     // Check out the discovered peripherals
     func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!) {
         if central.state == .PoweredOn {
-        let deviceName = "TFLY"
+        let deviceName = "Ticketfly_Edison"
         let nameOfDeviceFound = (advertisementData as NSDictionary).objectForKey(CBAdvertisementDataLocalNameKey) as? NSString
         var index: Int
-        let peripheralToUse: CBPeripheral!
+        let peripheralToUse: CBPeripheral?
         
-        if (nameOfDeviceFound == deviceName) {
+        if (nameOfDeviceFound == deviceName && beaconManager?.closestBeacon?.rssi > -60) {
             // Update Status Label
-            labelManager.statusLabelStatusChange("BLE Shield Found")
-            labelManager.messageLabelStatusChange("The BLE Says:...")
+            beaconManager?.stopBeaconScan()
+            connectionTimer?.invalidate()
+            labelManager.statusLabelStatusChange("Edison Found")
+            beaconManager?.sendLocalNotificationWithMessage("Found a Ticketfly Beacon!")
+            labelManager.messageLabelStatusChange("Would connect here")
             arrayReference.appendPeripheral(peripheral)
             central.stopScan()
             central.connectPeripheral(peripheral, options: nil)
@@ -81,6 +88,7 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
             }
             else {
                 self.blePeripheralFinder = BlePeripheralFinder(peripheral: arrayReference.peripheralArray[index], arrayReferenceIn: arrayReference, labelManagerIn: labelManager)
+                println("we found one!")
             }
         }
         else {
@@ -101,13 +109,23 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
     // If disconnected, start searching again
     func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
         //timer.invalidate()
-        if central.state == .PoweredOn {
-            arrayReference.connectFlag = false
+        arrayReference.connectFlag = false
         labelManager.statusLabelStatusChange("Disconnected")
         labelManager.rssiLabelStatusChange("RSSI: Unknown")
-        labelManager.messageLabelStatusChange("No BLE :(")
+        labelManager.messageLabelStatusChange("Manual Write Done")
+        beaconManager?.startBeaconScan()
+        connectionTimer = NSTimer.scheduledTimerWithTimeInterval (2, target: self, selector: "beaconTimerTargetStartScan", userInfo: nil, repeats: true)
         central.scanForPeripheralsWithServices(nil, options: nil)
+    }
+    
+    func beaconTimerTargetStartScan() {
+        if beaconManager?.beaconToken == 0 {
+            beaconManager?.startBeaconScan()
         }
+    }
+    
+    func whenBackgrounded(){
+        
     }
     
     //(Padding?) check to ensure that the
@@ -122,6 +140,14 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
             central.cancelPeripheralConnection(currentConnectedPeripheral!)
             central.connectPeripheral(bestPeripheral, options: nil)
         }
+    }
+    
+    func stopScanningBackground(){
+        centralManager.stopScan()
+    }
+    
+    func startScanningBackground(){
+        centralManager.scanForPeripheralsWithServices(nil, options: nil)
     }
 }
 
