@@ -57,9 +57,8 @@ class BlePeripheralFinder: NSObject, CBPeripheralDelegate {
     
     }
     
-   // peripheral.readValueForCharacteristic(
     
-    // Then "discover" the write characteristic
+    // Then "discover the write characteristic
     func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
         if peripheral.state == .Connected {
             labelManager.statusLabelStatusChange("Finding Characteristics")
@@ -83,22 +82,7 @@ class BlePeripheralFinder: NSObject, CBPeripheralDelegate {
             }
         }
     }
-    /*
-    func peripheralDidUpdateRSSI(peripheral: CBPeripheral!, error: NSError!) {
-        if bleShield.RSSI != nil {
-            RssiGlobal[RssiCounter] = bleShield.RSSI.integerValue
-        }
-        //println (RssiCounter)
-        if RssiCounter == 2 {
-            RssiGlobal[3] = (RssiGlobal[0] + RssiGlobal[1] + RssiGlobal[2])/3
-            //println (bleShield.RSSI)
-            labelManager.rssiLabelStatusChange("RSSI: \(RssiGlobal[3])")
-            RssiCounter = -1
-        }
-        RssiCounter += 1
-        
-    }
-    */
+    
     func rssiCheckAndSend (){ //Write a sender timer and a rssi checker timer
         if  bleShield.state == .Connected && sendFlag == true {
             println("timer write")
@@ -113,7 +97,9 @@ class BlePeripheralFinder: NSObject, CBPeripheralDelegate {
     }
     
     
-    // Get a message from the BLE
+    
+    /* Old methods that aren't being used
+    // Get a message from the BLE--no longer using a notify characteristic
     func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
         if peripheral.state == .Connected {
             if characteristic.UUID == RBL_NOTIFY_UUID {
@@ -129,4 +115,20 @@ class BlePeripheralFinder: NSObject, CBPeripheralDelegate {
             }
         }
     }
+    
+    // no longer readin the rssi of the peripheral
+    func peripheralDidUpdateRSSI(peripheral: CBPeripheral!, error: NSError!) {
+        if bleShield.RSSI != nil {
+            RssiGlobal[RssiCounter] = bleShield.RSSI.integerValue
+        }
+        //println (RssiCounter)
+        if RssiCounter == 2 {
+            RssiGlobal[3] = (RssiGlobal[0] + RssiGlobal[1] + RssiGlobal[2])/3
+            //println (bleShield.RSSI)
+            labelManager.rssiLabelStatusChange("RSSI: \(RssiGlobal[3])")
+            RssiCounter = -1
+        }
+        RssiCounter += 1
+    }
+    */
 }

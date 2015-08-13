@@ -20,7 +20,7 @@ let EDISON_WRITE_NO_RESPONSE_UUID = CBUUID(string:"2340503E-0DE1-4B6E-ACB4-209EB
 let EDISON_MAIN_UUID = CBUUID(string: "26F6396B-F42A-258F-5376-861FF34AFC80")
 let EDISON_SERVICE_UUID = CBUUID(string: "7562438A-2284-4D03-AC70-B15509F87B94")
 
-let enableValue = "7eab92d0-29bc-11e5-b345-feff819cdc9f"
+let enableValue = "7eab2192-29bc-11e5-b345-feff819cdc9f"
 let TICKETSAMPLEDATA: NSData! = enableValue.dataUsingEncoding(NSUTF8StringEncoding)
 
 var bleScanner: BleScanner?

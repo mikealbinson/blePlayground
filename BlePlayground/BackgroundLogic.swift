@@ -17,7 +17,7 @@
 * methods I call are also included below
 */
 
-
+/*
 
 //MARK: The logic begins at CLLocationDelegate's didEnterRegion callback (BeaconManager Class)
 
@@ -154,3 +154,4 @@ func writeToClosestPeripheral (datatoWrite: NSData!) {
         println ("Tried to write, but couldn't")
     }
 }
+*/

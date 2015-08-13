@@ -207,13 +207,9 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func rssiChecker(){
-        println("fire")
-        if self.closestBeacon?.rssi >= -60 {
-            self.stopBeaconScan()
+        if self.closestBeacon?.rssi >= -60 { //if close enough to the beacon
+            self.stopBeaconScan() //stop the ibeacon scan
             bleScanner?.centralManager.scanForPeripheralsWithServices(nil , options: nil)
-        }
-        else {
-            println("nope")
         }
     }
 }

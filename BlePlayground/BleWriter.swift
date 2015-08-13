@@ -23,9 +23,9 @@ class BleWriter: NSObject {
     }
     
     func writeToClosestPeripheral (datatoWrite: NSData!) {
-        if arrayReference.connectFlag == true && self.foundCharacteristic?.UUID == EDISON_WRITE_NO_RESPONSE_UUID {
-            arrayReference.peripheralArray[0].writeValue(datatoWrite, forCharacteristic: foundCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
-            arrayReference.centralManager?.cancelPeripheralConnection(arrayReference.peripheralArray[0])
+        if arrayReference.connectFlag == true && self.foundCharacteristic?.UUID == EDISON_WRITE_NO_RESPONSE_UUID { //check again for disconnect
+            arrayReference.peripheralArray[0].writeValue(datatoWrite, forCharacteristic: foundCharacteristic, type: CBCharacteristicWriteType.WithoutResponse) //write the data
+            arrayReference.centralManager?.cancelPeripheralConnection(arrayReference.peripheralArray[0]) //disconnect
         }
         else {
             println ("Tried to write, but couldn't")

@@ -30,7 +30,6 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
         self.labelManager = labelManagerIn
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
-        
         connectionTimer = NSTimer.scheduledTimerWithTimeInterval (2, target: self, selector: "beaconTimerTargetStartScan", userInfo: nil, repeats: true)
         arrayReference.centralManager = centralManager
     }
@@ -42,7 +41,6 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
         if powerState == CBCentralManagerState.PoweredOn
         {
             println ("Powered on")
-            //Scan and retrieve
             central.scanForPeripheralsWithServices(nil, options: nil)
             labelManager.statusLabelStatusChange("Central Powered On")
             beaconManager = BeaconManager(labelManagerIn: labelManager, scannerIn: self)
@@ -108,7 +106,6 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
     
     // If disconnected, start searching again
     func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
-        //timer.invalidate()
         arrayReference.connectFlag = false
         labelManager.statusLabelStatusChange("Disconnected")
         labelManager.rssiLabelStatusChange("RSSI: Unknown")
@@ -124,11 +121,8 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
         }
     }
     
-    func whenBackgrounded(){
-        
-    }
     
-    //(Padding?) check to ensure that the
+    /* --eventually may be helpful, but for now isn't doing anything
     func makeSureConnectedToClosestBle (central: CBCentralManager!, currentConnectedPeripheral: CBPeripheral!){
         
         let bestPeripheral: CBPeripheral
@@ -149,5 +143,6 @@ class BleScanner: NSObject, CBCentralManagerDelegate {
     func startScanningBackground(){
         centralManager.scanForPeripheralsWithServices(nil, options: nil)
     }
+*/
 }
 
